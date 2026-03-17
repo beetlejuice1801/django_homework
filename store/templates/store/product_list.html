@@ -8,13 +8,11 @@
     {% for product in products %}
     <li class="list-group-item">
         <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-            <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
-                <div class="my-3 py-3"><h2 class="display-5">{{ product.name }}</h2>
-                    <p class="lead">{{ product.description }}</p></div>
-                    <p class="lead">{{ product.price }} $</p></div>
-                <div class="bg-body-tertiary shadow-sm mx-auto"
-                     style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;"></div>
-            </div>
+            <div class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden flex-grow-1">
+                <div class="my-3 py-3"><h2 class="display-5"><a href="{% url 'product_detail' product.id %}">{{ product.name }}</a></h2>
+                    <a href="{% url 'product_edit' product.id %}" class="btn btn-sm btn-warning" >Редактировать</a>
+
+        </div>
     </li>
     {% empty %}
     <p>Добавьте авто</p>
